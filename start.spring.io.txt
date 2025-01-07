@@ -1,0 +1,1 @@
+https://start.spring.io/#!type=maven-project&language=java&platformVersion=3.4.0&packaging=jar&jvmVersion=21&groupId=com.chatapp&artifactId=chatapp&name=chatapp&description=ChatApp%20project%20for%20TU-Sofia&packageName=com.chatapp.chatapp&dependencies=devtools,configuration-processor,lombok,web,session,security,data-jpa,websocket,postgresql
