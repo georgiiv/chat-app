@@ -10,17 +10,17 @@ import lombok.Setter;
 @Table(name = "messages")
 public class Message {
 	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
 	@ManyToOne
-    @JoinColumn(nullable = false, name = "user_id")
+	@JoinColumn(nullable = false, name = "user_id")
 	private User sender;
 
 	@ManyToOne
-    @JoinColumn(nullable = false, name = "chat_room_id")
+	@JoinColumn(nullable = false, name = "chat_room_id")
 	private ChatRoom chatRoom;
 
 	@Column(columnDefinition = "TEXT")
-    private String content;
+	private String content;
 }

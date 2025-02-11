@@ -1,11 +1,14 @@
-### Get HomePage
+### Get Homepage
 GET http://localhost:8080/
+
+################################################################
 
 ### Get all Users
 GET http://localhost:8080/user
+Authorization: Basic test@test.test:1234
 
-###
-POST http://localhost:8080/user 
+### Create specific User
+POST http://localhost:8080/user
 Content-Type: application/json
 
 {
@@ -13,8 +16,8 @@ Content-Type: application/json
 	"password": "1234"
 }
 
-###
-POST http://localhost:8080/user 
+### Create random User
+POST http://localhost:8080/user
 Content-Type: application/json
 
 {
@@ -22,16 +25,32 @@ Content-Type: application/json
 	"password": "1234"
 }
 
+################################################################
+
 ### Get all ChatRooms
 GET http://localhost:8080/room
+Authorization: Basic test@test.test:1234
 
 ### Create ChatRoom
 POST http://localhost:8080/room
+Authorization: Basic test@test.test:1234
 
 ### Add User to ChatRoom
 POST http://localhost:8080/room/1/user
+Authorization: Basic test@test.test:1234
 Content-Type: application/json
 
 {
-	"userId": "1"
+	"userId": "2"
+}
+
+################################################################
+
+### Send Message
+POST http://localhost:8080/room/1/message
+Authorization: Basic test@test.test:1234
+Content-Type: application/json
+
+{
+	"content": "Example message."
 }
