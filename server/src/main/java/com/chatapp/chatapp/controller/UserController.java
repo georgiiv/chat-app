@@ -20,18 +20,18 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-	@GetMapping("/user")
-	public List<User> getUsers(){
-		return userRepository.findAll();
-	}
+    @GetMapping("/user")
+    public List<User> getUsers() {
+        return userRepository.findAll();
+    }
 
-	@PostMapping("/user")
-	public ResponseEntity<String> createUser(@RequestBody Map<String, String> request){
-		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-		User user = new User(request.get("email"), bCryptPasswordEncoder.encode(request.get("password")));
+    @PostMapping("/user")
+    public ResponseEntity<String> createUser(@RequestBody Map<String, String> request) {
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        User user = new User(request.get("email"), bCryptPasswordEncoder.encode(request.get("password")));
 
-		this.userRepository.saveAndFlush(user);
+        this.userRepository.saveAndFlush(user);
 
-		return new ResponseEntity<>(HttpStatus.OK);
-	}
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

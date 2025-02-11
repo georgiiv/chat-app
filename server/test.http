@@ -12,8 +12,8 @@ POST http://localhost:8080/user
 Content-Type: application/json
 
 {
-	"email": "test@test.test",
-	"password": "1234"
+    "email": "test@test.test",
+    "password": "1234"
 }
 
 ### Create random User
@@ -21,8 +21,8 @@ POST http://localhost:8080/user
 Content-Type: application/json
 
 {
-	"email": "{{$randomInt 1 10000}}@test.test",
-	"password": "1234"
+    "email": "{{$randomInt 1 10000}}@test.test",
+    "password": "1234"
 }
 
 ################################################################
@@ -41,7 +41,7 @@ Authorization: Basic test@test.test:1234
 Content-Type: application/json
 
 {
-	"userId": "2"
+    "userId": "2"
 }
 
 ################################################################
@@ -52,5 +52,5 @@ Authorization: Basic test@test.test:1234
 Content-Type: application/json
 
 {
-	"content": "Example message."
+    "content": "Example message."
 }

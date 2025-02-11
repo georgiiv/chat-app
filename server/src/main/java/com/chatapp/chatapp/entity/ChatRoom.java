@@ -11,19 +11,20 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Getter @Setter @NoArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
 @Table(name = "chat_rooms")
-public class ChatRoom {	
-	@Id
+public class ChatRoom {
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+    private Integer id;
 
-	@ManyToMany
-    @JoinTable(
-            name = "user_chat_room", // Name of the join table
+    @ManyToMany
+    @JoinTable(name = "user_chat_room", // Name of the join table
             joinColumns = @JoinColumn(name = "chat_room_id"), // Foreign key in join table referencing ChatRoom
             inverseJoinColumns = @JoinColumn(name = "user_id") // Foreign key in join table referencing User
     )
-	@JsonIgnore
+    @JsonIgnore
     private Set<User> participants = new HashSet<>();
 }

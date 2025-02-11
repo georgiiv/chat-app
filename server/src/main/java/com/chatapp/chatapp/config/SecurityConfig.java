@@ -17,15 +17,14 @@ import com.chatapp.chatapp.repository.UserRepository;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-	@Bean
+    @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests((requests)->requests
-            .requestMatchers(HttpMethod.GET, "/").permitAll()
-            .requestMatchers(HttpMethod.POST, "/user").permitAll()
-            .requestMatchers("/**").hasRole("USER")
-        )
-        .httpBasic(Customizer.withDefaults())
-        .csrf().disable();
+        http.authorizeHttpRequests((requests) -> requests
+                .requestMatchers(HttpMethod.GET, "/").permitAll()
+                .requestMatchers(HttpMethod.POST, "/user").permitAll()
+                .requestMatchers("/**").hasRole("USER"))
+                .httpBasic(Customizer.withDefaults())
+                .csrf().disable();
 
         return http.build();
     }

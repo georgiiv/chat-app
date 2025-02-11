@@ -1,2 +1,2 @@
 # chat-app
-Chat application project for TU-Sofia
+Chat application project

@@ -11,24 +11,26 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
-@Getter @Setter @NoArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
 @Table(name = "users")
 public class User {
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+    private Integer id;
 
-	@Column(name = "email", unique = true, nullable = false)
+    @Column(name = "email", unique = true, nullable = false)
     private String email;
 
     @JsonIgnore
-    @Column(name = "password", length=60, nullable = false)
+    @Column(name = "password", length = 60, nullable = false)
     private String password;
 
-	@ManyToMany(mappedBy = "participants")
+    @ManyToMany(mappedBy = "participants")
     private Set<ChatRoom> chatRooms = new HashSet<>();
 
-	public User(String email, String password){
+    public User(String email, String password) {
         this.email = email;
         this.password = password;
     }
